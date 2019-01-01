@@ -1,0 +1,14 @@
+.radio-group-row {
+    width: 200px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+p {
+    font-size: 18px;
+}
+
+material-radio {
+    font-size: 12px;
+    color: gray;
+}
