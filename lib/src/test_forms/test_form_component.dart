@@ -11,15 +11,27 @@ import 'package:adizis_test_app/src/services/get_result.dart';
   directives: [
     MaterialRadioGroupComponent,
     MaterialRadioComponent,
-    NgModel
+    MaterialButtonComponent,
+    MaterialSliderComponent
       ],
 //  providers: [ClassProvider(TodoListService)],
 )
 
 class TestFormComponent {
+  int count = 0;
+
   List<int> result_list_P = List(); //массив для записи результатов тестов P
   List<int> result_list_A = List(); //массив для записи результатов тестов A
   List<int> result_list_E = List(); //массив для записи результатов тестов E
   List<int> result_list_I = List(); //массив для записи результатов тестов I
+
+  increase() {
+    count++;
+    return count;
+  }
+
+  getResultP() {
+
+  }
 
 }

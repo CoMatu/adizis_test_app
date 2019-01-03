@@ -12,3 +12,8 @@ material-radio {
     font-size: 12px;
     color: gray;
 }
+
+material-button {
+    color: white;
+    background-color: blue;
+}

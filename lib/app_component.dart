@@ -12,5 +12,5 @@ import 'src/test_forms/test_form_component.dart';
   directives: [TestFormComponent],
 )
 class AppComponent {
-  // Nothing here yet. All logic is in TodoListComponent.
+  // Nothing here yet. All logic is in TestFormComponent.
 }
