@@ -2,7 +2,6 @@
 
 import 'package:angular/angular.dart';
 import 'package:angular_components/angular_components.dart';
-import 'package:adizis_test_app/src/services/get_result.dart';
 
 @Component(
   selector: 'test-forms',
@@ -11,9 +10,8 @@ import 'package:adizis_test_app/src/services/get_result.dart';
   directives: [
     MaterialRadioGroupComponent,
     MaterialRadioComponent,
-    MaterialButtonComponent,
-    MaterialSliderComponent
-      ],
+    MaterialButtonComponent
+  ],
 //  providers: [ClassProvider(TodoListService)],
 )
 
