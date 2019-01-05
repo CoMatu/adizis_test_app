@@ -3,8 +3,8 @@
         {{title_P}}
     </td>
     <td>
-        <material-radio-group>
-            <material-radio *ngFor="let item of scillScore">
+        <material-radio-group [(ngModel)]="selected_P">
+            <material-radio *ngFor="let item of scillScore" [value]="item">
                 {{ item }}
             </material-radio>
         </material-radio-group>
@@ -15,7 +15,7 @@
         {{title_A}}
     </td>
     <td>
-        <material-radio-group>
+        <material-radio-group [(ngModel)]="selected_A">
             <material-radio *ngFor="let item of scillScore">
                 {{ item }}
             </material-radio>
@@ -46,3 +46,5 @@
         </material-radio-group>
     </td>
 </tr>
+<p *ngIf="value_P!=null">Оценочка: {{result}}</p>
+<p *ngIf="value_P==null">Ничего не выбрано, лузер!</p>

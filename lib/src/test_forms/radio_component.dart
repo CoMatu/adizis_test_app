@@ -6,7 +6,9 @@ import 'package:angular_components/angular_components.dart';
   styleUrls: ['test_form_component.css'],
   templateUrl: 'radio_component.html',
   directives: [
+    NgModel,
     NgFor,
+    NgIf,
     MaterialRadioComponent,
     MaterialRadioGroupComponent
     ]
@@ -14,6 +16,13 @@ import 'package:angular_components/angular_components.dart';
 
 class RadioScreenComponent {
   final scillScore = [1, 2, 3, 4];
+  int selected_P;
+  int selected_A;
+
+  int get value_P => selected_P;
+  int get value_A => selected_A;
+
+  String get result => (selected_P+selected_A).toString();
 
   @Input()
   String title_P;
