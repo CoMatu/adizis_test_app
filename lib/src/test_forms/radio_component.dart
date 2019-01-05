@@ -16,13 +16,17 @@ import 'package:angular_components/angular_components.dart';
 
 class RadioScreenComponent {
   final scillScore = [1, 2, 3, 4];
-  int selected_P;
-  int selected_A;
+  int selected_P = 0;
+  int selected_A = 0;
+  int selected_E = 0;
+  int selected_I = 0;
 
   int get value_P => selected_P;
   int get value_A => selected_A;
+  int get value_E => selected_E;
+  int get value_I => selected_I;
 
-  String get result => (selected_P+selected_A).toString();
+  String get result => (value_P+value_A+value_E+value_I).toString();
 
   @Input()
   String title_P;

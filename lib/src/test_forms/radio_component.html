@@ -16,7 +16,7 @@
     </td>
     <td>
         <material-radio-group [(ngModel)]="selected_A">
-            <material-radio *ngFor="let item of scillScore">
+            <material-radio *ngFor="let item of scillScore" [value]="item">
                 {{ item }}
             </material-radio>
         </material-radio-group>
@@ -27,8 +27,8 @@
         {{title_E}}
     </td>
     <td>
-        <material-radio-group>
-            <material-radio *ngFor="let item of scillScore">
+        <material-radio-group [(ngModel)]="selected_E">
+            <material-radio *ngFor="let item of scillScore" [value]="item">
                 {{ item }}
             </material-radio>
         </material-radio-group>
@@ -39,8 +39,8 @@
         {{title_I}}
     </td>
     <td>
-        <material-radio-group>
-            <material-radio *ngFor="let item of scillScore">
+        <material-radio-group [(ngModel)]="selected_I">
+            <material-radio *ngFor="let item of scillScore" [value]="item">
                 {{ item }}
             </material-radio>
         </material-radio-group>
