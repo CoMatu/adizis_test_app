@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:angular/angular.dart';
 import 'package:angular_components/angular_components.dart';
+import 'package:adizis_test_app/src/test_forms/radio_component.dart';
 
 @Component(
   selector: 'test-forms',
@@ -12,7 +13,8 @@ import 'package:angular_components/angular_components.dart';
     MaterialRadioComponent,
     MaterialButtonComponent,
     MaterialCheckboxComponent,
-    NgFor
+    NgFor,
+    RadioScreenComponent
   ],
   providers: [materialProviders],
 )
@@ -35,8 +37,6 @@ class TestFormComponent {
     'Отзывчивый', 'Чувствующий', 'Сопереживающий', 'Благожелательный', 'Интуитивный', 'Общительный', 
     'Взаимодействующий', 'Теплый', 'Стремящийся к консенсусу', 'Осведомленный', 'Приятный', 'Объединяющий'
   ];
-
-  final scillScore = [1, 2, 3, 4];
 
   List<int> result_list_P = List(); //массив для записи результатов тестов P
   List<int> result_list_A = List(); //массив для записи результатов тестов A

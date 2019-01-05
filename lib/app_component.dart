@@ -10,7 +10,7 @@ import 'src/test_forms/radio_component.dart';
   selector: 'my-app',
   styleUrls: ['app_component.css'],
   templateUrl: 'app_component.html',
-  directives: [TestFormComponent, RadioComponent],
+  directives: [TestFormComponent],
 )
 class AppComponent {
   // Nothing here yet. All logic is in TestFormComponent.
