@@ -26,9 +26,4 @@ class GetResult {
     }
     return summ;
   }
-
-  getSummSkill(int p, int a, int e, int i) {
-    int res = p+a+e+i;
-    return res;
-  }
 }

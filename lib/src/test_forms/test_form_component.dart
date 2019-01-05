@@ -1,4 +1,4 @@
-import 'dart:async';
+//import 'dart:async';
 
 import 'package:angular/angular.dart';
 import 'package:angular_components/angular_components.dart';
@@ -44,3 +44,5 @@ class TestFormComponent {
   List<int> result_list_I = List(); //массив для записи результатов тестов I
 
 }
+
+//TODO: сделать вывод наименований скиллов в соответствии с номером блока вопросов
