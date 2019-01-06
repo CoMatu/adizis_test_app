@@ -3,18 +3,16 @@
 import 'package:angular/angular.dart';
 import 'package:angular_components/angular_components.dart';
 import 'package:adizis_test_app/src/test_forms/radio_component.dart';
+//import 'package:angular_router/angular_router.dart';
 
 @Component(
   selector: 'test-forms',
   styleUrls: ['test_form_component.css'],
   templateUrl: 'test_form_component.html',
   directives: [
-    MaterialRadioGroupComponent,
-    MaterialRadioComponent,
     MaterialButtonComponent,
-    MaterialCheckboxComponent,
-    NgFor,
-    RadioScreenComponent
+    RadioScreenComponent,
+    NgIf
   ],
   providers: [materialProviders],
 )
@@ -37,6 +35,26 @@ class TestFormComponent {
     'Отзывчивый', 'Чувствующий', 'Сопереживающий', 'Благожелательный', 'Интуитивный', 'Общительный', 
     'Взаимодействующий', 'Теплый', 'Стремящийся к консенсусу', 'Осведомленный', 'Приятный', 'Объединяющий'
   ];
+
+  int counter=0;
+
+  increment() {
+    if(counter<11){
+    counter++;
+    }
+  }
+
+  decrement() {
+    if(counter!=0){
+      counter--;
+    }
+  }
+
+  String get skill_P => list_P[counter];
+  String get skill_A => list_A[counter];
+  String get skill_E => list_E[counter];
+  String get skill_I => list_I[counter];
+
 
   List<int> result_list_P = List(); //массив для записи результатов тестов P
   List<int> result_list_A = List(); //массив для записи результатов тестов A

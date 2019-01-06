@@ -3,5 +3,9 @@
     насколько оно подходит именно вам. Общая сумма баллов одного блока
     должна быть равна 10.</p>
 <hr>
-<radio-form [title_P]="list_P[0]" [title_A]="list_A[0]" [title_E]="list_E[0]" [title_I]="list_I[0]"></radio-form>
+<radio-form [title_P]="skill_P" [title_A]="skill_A" [title_E]="skill_E" [title_I]="skill_I"></radio-form>
 <hr>
+<div class="navigation">
+    <material-button class="button" (click)="decrement">Назад</material-button>
+    <material-button class="button" (click)="increment">Далее</material-button>
+</div>
