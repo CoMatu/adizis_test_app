@@ -10,9 +10,12 @@ import 'package:adizis_test_app/src/test_forms/radio_component.dart';
   styleUrls: ['test_form_component.css'],
   templateUrl: 'test_form_component.html',
   directives: [
+    MaterialRadioComponent,
+    MaterialRadioGroupComponent,
     MaterialButtonComponent,
     RadioScreenComponent,
-    NgIf
+    NgIf,
+    ViewChild
   ],
   providers: [materialProviders],
 )
@@ -41,6 +44,7 @@ class TestFormComponent {
   increment() {
     if(counter<11){
     counter++;
+    RadioScreenComponent().uncheckedGroup();
     }
   }
 
