@@ -1,3 +1,27 @@
-:host {
-    /* This is equivalent of the 'body' selector of a page. */
+p {
+    font-size: 18px;
+}
+
+material-radio {
+    font-size: 12px;
+    color: gray;
+}
+
+.skillrow {
+    display: inline-block;
+    width: 30%;
+}
+
+.radiorow {
+    display: inline-block;
+    width: 50%;
+}
+
+.button {
+    display: inline-block;
+}
+
+.navigation {
+    width: 150px;
+    margin: auto;
 }
