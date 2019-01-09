@@ -14,8 +14,7 @@ import 'package:angular_forms/angular_forms.dart';
     NgIf,
     NgModel,
     ViewChild,
-    ViewChildren,
-    ContentChildren
+    ViewChildren
     ],
   providers: [materialProviders]
 )
@@ -37,12 +36,35 @@ class AppComponent {
     'Взаимодействующий', 'Теплый', 'Стремящийся к консенсусу', 'Осведомленный', 'Приятный', 'Объединяющий'
   ];
 
+  List<SkillBlock> listSkillBlocks = List();
+
   int counter=0;
 
   increment() {
+    bool check = false; // есть ли объект с таким же id 
     if(counter<11){
+      
+  //создаем объект с результатами оценок одного блока
+    SkillBlock block = SkillBlock(counter, value_P, value_A, value_E, value_I);
+  //проверяем, нет ли объекта с таким же id 
+    for(int i = 0; i < counter; i++) {
+      if(listSkillBlocks[i].id == counter) {
+        check = true;
+        listSkillBlocks.removeAt(i); // удалили повторочку
+      }
+    }
+    if(check) {
+      listSkillBlocks.add(block); // добавили новые оценки в блок
+    }
+
     counter++;
-    uncheckAll();
+
+    uncheckAll(); //снимаем выборы со всех радио
+    print(block.id);
+    print(block.value_P);
+    print(block.value_A);
+    print(block.value_E);
+    print(block.value_I);
     }
   }
 
@@ -68,15 +90,24 @@ class AppComponent {
   int get value_E => selected_E;
   int get value_I => selected_I;
 
-  String get result => (value_P+value_A+value_E+value_I).toString(); // выводим сумму оценок
+ // String get result => (value_P+value_A+value_E+value_I).toString(); // выводим сумму оценок
 
   @ViewChildren(MaterialRadioGroupComponent)
   List<MaterialRadioGroupComponent> groups;
 
   void uncheckAll() {
     for(MaterialRadioGroupComponent child in groups){
-      print(child.selected);
+    //  print(child.selected);
       child.selected = null;
     }
     }
+  }
+
+  class SkillBlock {
+    int id;
+    int value_P;
+    int value_A;
+    int value_E;
+    int value_I;
+    SkillBlock(this.id, this.value_P, this.value_A, this.value_E, this.value_I);
   }
