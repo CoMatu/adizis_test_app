@@ -36,31 +36,22 @@ class AppComponent {
     'Взаимодействующий', 'Теплый', 'Стремящийся к консенсусу', 'Осведомленный', 'Приятный', 'Объединяющий'
   ];
 
-  List<SkillBlock> listSkillBlocks = List();
+  List listSkillBlocks = List<SkillBlock>();
 
   int counter=0;
 
   increment() {
-    bool check = false; // есть ли объект с таким же id 
+    //bool check = false; // есть ли объект с таким же id 
     if(counter<11){
-      
   //создаем объект с результатами оценок одного блока
     SkillBlock block = SkillBlock(counter, value_P, value_A, value_E, value_I);
   //проверяем, нет ли объекта с таким же id 
-    for(int i = 0; i < counter; i++) {
-      if(listSkillBlocks[i].id == counter) {
-        check = true;
-        listSkillBlocks.removeAt(i); // удалили повторочку
-      }
-    }
-    if(check) {
-      listSkillBlocks.add(block); // добавили новые оценки в блок
-    }
+
+    var idIndex = listSkillBlocks.indexOf(block);
 
     counter++;
-
+    print(counter);
     uncheckAll(); //снимаем выборы со всех радио
-    print(block.id);
     print(block.value_P);
     print(block.value_A);
     print(block.value_E);
@@ -71,6 +62,7 @@ class AppComponent {
   decrement() {
     if(counter!=0){
       counter--;
+      print("D"+counter.toString());
     }
   }
 
