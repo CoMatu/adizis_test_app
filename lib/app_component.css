@@ -25,3 +25,7 @@ material-radio {
     width: 150px;
     margin: auto;
 }
+
+.progress {
+    height: 40px;
+}

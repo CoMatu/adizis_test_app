@@ -10,8 +10,10 @@ import 'package:angular_forms/angular_forms.dart';
     MaterialRadioComponent,
     MaterialRadioGroupComponent,
     MaterialButtonComponent,
+    MaterialProgressComponent,
     NgFor,
     NgIf,
+    NgClass,
     NgModel,
     ViewChild,
     ViewChildren
@@ -33,7 +35,7 @@ class AppComponent {
   ];
   final List<String> list_I = [
     'Отзывчивый', 'Чувствующий', 'Сопереживающий', 'Благожелательный', 'Интуитивный', 'Общительный', 
-    'Взаимодействующий', 'Теплый', 'Стремящийся к консенсусу', 'Осведомленный', 'Приятный', 'Объединяющий'
+    'Взаимодействующий', 'Теплый', 'Договаривающийся', 'Осведомленный', 'Приятный', 'Объединяющий'
   ];
 
   List listSkillBlocks = List<SkillBlock>();
@@ -45,17 +47,17 @@ class AppComponent {
     if(counter<11){
   //создаем объект с результатами оценок одного блока
     SkillBlock block = SkillBlock(counter, value_P, value_A, value_E, value_I);
-  //проверяем, нет ли объекта с таким же id 
-
-    var idIndex = listSkillBlocks.indexOf(block);
+  //проверяем, нет ли объекта с таким же id в массиве
+  for(SkillBlock entry in listSkillBlocks) {
+    if(entry.id==counter) {
+      listSkillBlocks.removeAt(counter);
+    }
+  }
+    listSkillBlocks.add(block); // пишем оценки блока в массив
 
     counter++;
     print(counter);
     uncheckAll(); //снимаем выборы со всех радио
-    print(block.value_P);
-    print(block.value_A);
-    print(block.value_E);
-    print(block.value_I);
     }
   }
 
@@ -93,6 +95,8 @@ class AppComponent {
       child.selected = null;
     }
     }
+
+    int get count => counter;
   }
 
   class SkillBlock {

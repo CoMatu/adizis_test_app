@@ -52,6 +52,9 @@
 <p *ngIf="value_P==null">Ничего не выбрано, лузер!</p>
 -->
 <hr>
+<div class="progress">
+    <material-progress [max]="11" [activeProgress]="count"></material-progress>
+</div>
 <div class="navigation">
     <material-button class="button" (click)="decrement">Назад</material-button>
     <material-button class="button" (click)="increment">Далее</material-button>
