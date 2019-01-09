@@ -1,5 +1,6 @@
 import 'package:angular/angular.dart';
 import 'package:angular_components/angular_components.dart';
+import 'package:angular_forms/angular_forms.dart';
 
 @Component(
   selector: 'my-app',
@@ -11,7 +12,10 @@ import 'package:angular_components/angular_components.dart';
     MaterialButtonComponent,
     NgFor,
     NgIf,
-    NgModel
+    NgModel,
+    ViewChild,
+    ViewChildren,
+    ContentChildren
     ],
   providers: [materialProviders]
 )
@@ -35,9 +39,10 @@ class AppComponent {
 
   int counter=0;
 
-    increment() {
+  increment() {
     if(counter<11){
     counter++;
+    uncheckAll();
     }
   }
 
@@ -65,4 +70,13 @@ class AppComponent {
 
   String get result => (value_P+value_A+value_E+value_I).toString(); // выводим сумму оценок
 
-}
+  @ViewChildren(MaterialRadioGroupComponent)
+  List<MaterialRadioGroupComponent> groups;
+
+  void uncheckAll() {
+    for(MaterialRadioGroupComponent child in groups){
+      print(child.selected);
+      child.selected = null;
+    }
+    }
+  }
