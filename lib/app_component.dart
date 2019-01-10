@@ -21,6 +21,7 @@ import 'package:angular_forms/angular_forms.dart';
   providers: [materialProviders]
 )
 class AppComponent {
+  
   final List<String> list_P = [
     'Вовлеченный', 'Прямолинейный', 'Делающий', 'Отдающий себе отчет', 'Результативный', 
     'Упорный', 'Активный', 'Прагматичный', 'Побеждающий', 'Рациональный', 'Деловой', 'Реалистичный'
@@ -47,12 +48,14 @@ class AppComponent {
     if(counter<11){
   //создаем объект с результатами оценок одного блока
     SkillBlock block = SkillBlock(counter, value_P, value_A, value_E, value_I);
+/*
   //проверяем, нет ли объекта с таким же id в массиве
   for(SkillBlock entry in listSkillBlocks) {
     if(entry.id==counter) {
       listSkillBlocks.removeAt(counter);
     }
   }
+  */
     listSkillBlocks.add(block); // пишем оценки блока в массив
 
     counter++;
@@ -60,14 +63,14 @@ class AppComponent {
     uncheckAll(); //снимаем выборы со всех радио
     }
   }
-
+/* нажатие кнопки назад
   decrement() {
     if(counter!=0){
       counter--;
       print("D"+counter.toString());
     }
   }
-
+*/
   String get skill_P => list_P[counter];
   String get skill_A => list_A[counter];
   String get skill_E => list_E[counter];
@@ -107,3 +110,9 @@ class AppComponent {
     int value_I;
     SkillBlock(this.id, this.value_P, this.value_A, this.value_E, this.value_I);
   }
+
+  // TODO сделать вывод выборов из массива при возврате на предыдущие блоки
+  // TODO сделать ограничение по выборам оценок = не больше 10 баллов в каждом блоке
+  // TODO сделать не активной кнопку навигации НАЗАД на первой странице
+  // TODO сделать не активной кнопку ДАЛЕЕ на последнем блоке
+  // TODO добавить кнопку получения результата теста

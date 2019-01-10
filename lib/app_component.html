@@ -56,6 +56,7 @@
     <material-progress [max]="11" [activeProgress]="count"></material-progress>
 </div>
 <div class="navigation">
-    <material-button class="button" (click)="decrement">Назад</material-button>
-    <material-button class="button" (click)="increment">Далее</material-button>
+        <!--!    <material-button class="button" (click)="decrement">Назад</material-button> -->
+        <material-button class="button" *ngIf="count!=11" (click)="increment">Далее</material-button>
+        <material-button class="button" *ngIf="count==11">К результатам</material-button>
 </div>
