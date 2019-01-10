@@ -3,12 +3,12 @@
     Присвойте каждому качеству от 1-го до 4-ех баллов в зависимости от того,
     насколько оно подходит именно вам. Общая сумма баллов одного блока
     должна быть равна 10.</p>
-<hr>
+<br>
 <div>
     <div class="skillrow">{{skill_P}}</div>
     <div class="radiorow">
         <material-radio-group [(ngModel)]="selected_P">
-            <material-radio *ngFor="let item of scillScore" [value]="item">
+            <material-radio *ngFor="let item of skillScore" [value]="item">
                 {{ item }}
             </material-radio>
         </material-radio-group>
@@ -19,7 +19,7 @@
     <div class="skillrow">{{skill_A}}</div>
     <div class="radiorow">
         <material-radio-group [(ngModel)]="selected_A">
-            <material-radio *ngFor="let item of scillScore" [value]="item">
+            <material-radio *ngFor="let item of skillScore" [value]="item">
                 {{ item }}
             </material-radio>
         </material-radio-group>
@@ -30,7 +30,7 @@
     <div class="skillrow">{{skill_E}}</div>
     <div class="radiorow">
         <material-radio-group [(ngModel)]="selected_E">
-            <material-radio *ngFor="let item of scillScore" [value]="item">
+            <material-radio *ngFor="let item of skillScore" [value]="item">
                 {{ item }}
             </material-radio>
         </material-radio-group>
@@ -41,7 +41,7 @@
     <div class="skillrow">{{skill_I}}</div>
     <div class="radiorow">
         <material-radio-group [(ngModel)]="selected_I">
-            <material-radio *ngFor="let item of scillScore" [value]="item">
+            <material-radio *ngFor="let item of skillScore" [value]="item">
                 {{ item }}
             </material-radio>
         </material-radio-group>
@@ -51,12 +51,18 @@
 <p *ngIf="value_P!=null">Оценочка: {{result}}</p>
 <p *ngIf="value_P==null">Ничего не выбрано, лузер!</p>
 -->
-<hr>
+
 <div class="progress">
     <material-progress [max]="11" [activeProgress]="count"></material-progress>
 </div>
 <div class="navigation">
-        <!--!    <material-button class="button" (click)="decrement">Назад</material-button> -->
-        <material-button class="button" *ngIf="count!=11" (click)="increment">Далее</material-button>
-        <material-button class="button" *ngIf="count==11">К результатам</material-button>
+    <!--!    <material-button class="button" (click)="decrement">Назад</material-button> -->
+    <material-button class="button" *ngIf="count!=11" (click)="increment">Далее</material-button>
+    <material-button class="button" *ngIf="count==11">Узнать результат</material-button>
+</div>
+<br>
+<!-- TODO сделать выравнивание кнопки навигации по центру-->
+
+<div id="result" [ngClass]="{'invisible': true}">
+GHGHGHGHGHGHGHGHGGH
 </div>

@@ -76,7 +76,7 @@ class AppComponent {
   String get skill_E => list_E[counter];
   String get skill_I => list_I[counter];
 
-  final scillScore = [1, 2, 3, 4]; //задаем значения для оценок скилла
+  final skillScore = [1, 2, 3, 4]; //задаем значения для оценок скилла
   int selected_P = 0; // объявляем начальные значения оценок скиллов
   int selected_A = 0;
   int selected_E = 0;
@@ -100,6 +100,7 @@ class AppComponent {
     }
 
     int get count => counter;
+
   }
 
   class SkillBlock {
@@ -111,8 +112,5 @@ class AppComponent {
     SkillBlock(this.id, this.value_P, this.value_A, this.value_E, this.value_I);
   }
 
-  // TODO сделать вывод выборов из массива при возврате на предыдущие блоки
   // TODO сделать ограничение по выборам оценок = не больше 10 баллов в каждом блоке
-  // TODO сделать не активной кнопку навигации НАЗАД на первой странице
   // TODO сделать не активной кнопку ДАЛЕЕ на последнем блоке
-  // TODO добавить кнопку получения результата теста

@@ -1,12 +1,15 @@
 // начинаю писать с хвоста теста, в этом сервисе будем вычислять результат тестирования
+import 'package:adizis_test_app/app_component.dart';
+
 class GetResult {
+  List<SkillBlock> listResult = List();
+  GetResult(this.listResult);
+  List<int> result_list_P = List(); //массив для записи результатов тестов P
+  List<int> result_list_A = List(); //массив для записи результатов тестов A
+  List<int> result_list_E = List(); //массив для записи результатов тестов E
+  List<int> result_list_I = List(); //массив для записи результатов тестов I
 
-//  List<int> result_list_P = List(); //массив для записи результатов тестов P
-//  List<int> result_list_A = List(); //массив для записи результатов тестов A
-//  List<int> result_list_E = List(); //массив для записи результатов тестов E
-//  List<int> result_list_I = List(); //массив для записи результатов тестов I
-
-  getResult(List result_list_P, List result_list_A, List result_list_E, List result_list_I) {
+  getResult(List<SkillBlock> listResult) {
 
     Map test_result = Map(); //массив для вывода результатов PAEI
 
