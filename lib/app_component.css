@@ -14,7 +14,6 @@ material-radio {
 
 .radiorow {
     display: inline-block;
-    width: 50%;
 }
 
 .button {
@@ -36,4 +35,17 @@ material-radio {
 
 .invisible {
     visibility: hidden;
+}
+
+.block_result {
+    text-align: center;
+    display: table-cell; 
+    vertical-align: middle;    
+    height: 50px;
+    width: 300px;
+    box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
+}
+
+.general {
+    box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
 }

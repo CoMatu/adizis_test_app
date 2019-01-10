@@ -44,18 +44,9 @@ class AppComponent {
   int counter=0;
 
   increment() {
-    //bool check = false; // есть ли объект с таким же id 
     if(counter<11){
   //создаем объект с результатами оценок одного блока
     SkillBlock block = SkillBlock(counter, value_P, value_A, value_E, value_I);
-/*
-  //проверяем, нет ли объекта с таким же id в массиве
-  for(SkillBlock entry in listSkillBlocks) {
-    if(entry.id==counter) {
-      listSkillBlocks.removeAt(counter);
-    }
-  }
-  */
     listSkillBlocks.add(block); // пишем оценки блока в массив
 
     counter++;
@@ -63,14 +54,7 @@ class AppComponent {
     uncheckAll(); //снимаем выборы со всех радио
     }
   }
-/* нажатие кнопки назад
-  decrement() {
-    if(counter!=0){
-      counter--;
-      print("D"+counter.toString());
-    }
-  }
-*/
+  // геттеры названий скиллов
   String get skill_P => list_P[counter];
   String get skill_A => list_A[counter];
   String get skill_E => list_E[counter];
@@ -112,25 +96,26 @@ class AppComponent {
       _getResult();
     }
 
-    bool get trigger => _trigger;
+    bool get trigger => _trigger; // триггер видимости блока для html
 
     int result_P=0;
     int result_A=0;
     int result_E=0;
     int result_I=0;
 
+// функция для вызова кнопкой "Узнать результат"
     void _getResult() {
       result_P = getSumm_P();
       result_A = getSumm_A();
       result_E = getSumm_E();
       result_I = getSumm_I();
   }
-
+// геттеры для html
   int get P => result_P;
   int get A => result_A;
   int get E => result_E;
   int get I => result_I;
-
+// сумматоры показателей для вычисления результата
   getSumm_P () {int summ = 0; for(SkillBlock block in listSkillBlocks){summ+=block.value_P;} return summ;}
   getSumm_A () {int summ = 0; for(SkillBlock block in listSkillBlocks){summ+=block.value_A;} return summ;}
   getSumm_E () {int summ = 0; for(SkillBlock block in listSkillBlocks){summ+=block.value_E;} return summ;}
