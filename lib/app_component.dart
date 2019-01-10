@@ -101,8 +101,43 @@ class AppComponent {
 
     int get count => counter;
 
+    // выбор класса видимость или невидимость для страницы с результатом
+    bool _trigger = false;
+/** В этом коде получаем результат теста и меняем видимость страницы результата */
+    void viewResult() {
+      _trigger = true;
+      SkillBlock block = SkillBlock(counter, value_P, value_A, value_E, value_I);
+    listSkillBlocks.add(block); // пишем оценки блока в массив
+
+      _getResult();
+    }
+
+    bool get trigger => _trigger;
+
+    int result_P=0;
+    int result_A=0;
+    int result_E=0;
+    int result_I=0;
+
+    void _getResult() {
+      result_P = getSumm_P();
+      result_A = getSumm_A();
+      result_E = getSumm_E();
+      result_I = getSumm_I();
   }
 
+  int get P => result_P;
+  int get A => result_A;
+  int get E => result_E;
+  int get I => result_I;
+
+  getSumm_P () {int summ = 0; for(SkillBlock block in listSkillBlocks){summ+=block.value_P;} return summ;}
+  getSumm_A () {int summ = 0; for(SkillBlock block in listSkillBlocks){summ+=block.value_A;} return summ;}
+  getSumm_E () {int summ = 0; for(SkillBlock block in listSkillBlocks){summ+=block.value_E;} return summ;}
+  getSumm_I () {int summ = 0; for(SkillBlock block in listSkillBlocks){summ+=block.value_I;} return summ;}
+
+  }
+// для записи результатов оценок каждого блока
   class SkillBlock {
     int id;
     int value_P;
@@ -113,4 +148,3 @@ class AppComponent {
   }
 
   // TODO сделать ограничение по выборам оценок = не больше 10 баллов в каждом блоке
-  // TODO сделать не активной кнопку ДАЛЕЕ на последнем блоке

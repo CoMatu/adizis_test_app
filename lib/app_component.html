@@ -58,11 +58,16 @@
 <div class="navigation">
     <!--!    <material-button class="button" (click)="decrement">Назад</material-button> -->
     <material-button class="button" *ngIf="count!=11" (click)="increment">Далее</material-button>
-    <material-button class="button" *ngIf="count==11">Узнать результат</material-button>
+    <material-button class="button" *ngIf="count==11" (click)="viewResult">Узнать результат</material-button>
 </div>
 <br>
 <!-- TODO сделать выравнивание кнопки навигации по центру-->
 
-<div id="result" [ngClass]="{'invisible': true}">
-GHGHGHGHGHGHGHGHGGH
+<div id="result" [ngClass]="{'invisible': !trigger}">
+    <ul>
+        <li>P = {{P}}</li>
+        <li>A = {{A}}</li>
+        <li>E = {{E}}</li>
+        <li>I = {{I}}</li>
+    </ul>
 </div>

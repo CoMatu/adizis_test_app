@@ -11,7 +11,7 @@ class GetResult {
 
   getResult(List<SkillBlock> listResult) {
 
-    Map test_result = Map(); //массив для вывода результатов PAEI
+    var test_result = Map(); //массив для вывода результатов PAEI
 
     test_result['P'] = getSumm(result_list_P);
     test_result['A'] = getSumm(result_list_A);
