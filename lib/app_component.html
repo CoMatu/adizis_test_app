@@ -7,21 +7,22 @@
 <div>
     <div class="skillrow">{{skill_P}}</div>
     <div class="radiorow">
-        <material-radio-group (SelectedChange)="calculateScore($event)">
-            <material-radio [value]="1" [disabled]="(score+1) > 10">1</material-radio>
-            <material-radio [value]="2" [disabled]="(score+2) > 10">2</material-radio>
-            <material-radio [value]="3" [disabled]="score+3 > 10">3</material-radio>
-            <material-radio [value]="4" [disabled]="score+4 > 10">4</material-radio>
+        <material-radio-group [(ngModel)]="selected_P" (selectedChange)="onChange()">
+            <material-radio *ngFor="let item of skillScore" [value]="item"
+            [disabled]="false">
+                {{item}}
+            </material-radio>
         </material-radio-group>
+
     </div>
 </div>
 
 <div>
     <div class="skillrow">{{skill_A}}</div>
     <div class="radiorow">
-        <material-radio-group [(ngModel)]="selected_A">
+        <material-radio-group [(ngModel)]="selected_A" (selectedChange)="onChange()">
             <material-radio *ngFor="let item of skillScore" [value]="item">
-                {{ item }}
+                {{item}}
             </material-radio>
         </material-radio-group>
     </div>
@@ -30,9 +31,9 @@
 <div>
     <div class="skillrow">{{skill_E}}</div>
     <div class="radiorow">
-        <material-radio-group [(ngModel)]="selected_E">
+        <material-radio-group [(ngModel)]="selected_E" (selectedChange)="onChange()">
             <material-radio *ngFor="let item of skillScore" [value]="item">
-                {{ item }}
+                {{item}}
             </material-radio>
         </material-radio-group>
     </div>
@@ -41,9 +42,9 @@
 <div>
     <div class="skillrow">{{skill_I}}</div>
     <div class="radiorow">
-        <material-radio-group [(ngModel)]="selected_I">
+        <material-radio-group [(ngModel)]="selected_I" (selectedChange)="onChange()">
             <material-radio *ngFor="let item of skillScore" [value]="item">
-                {{ item }}
+                {{item}}
             </material-radio>
         </material-radio-group>
     </div>
