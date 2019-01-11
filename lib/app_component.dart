@@ -41,11 +41,22 @@ class AppComponent {
 
   List listSkillBlocks = List<SkillBlock>();
 
+    final skillScore = [1, 2, 3, 4]; //задаем значения для оценок скилла
+  int selected_P = 0; // объявляем начальные значения оценок скиллов
+  int selected_A = 0;
+  int selected_E = 0;
+  int selected_I = 0;
+
+  int get value_P => selected_P; // получаем значения выбранных оценок для каждого скилла
+  int get value_A => selected_A;
+  int get value_E => selected_E;
+  int get value_I => selected_I;
+
+
   int counter=0;
   /** Метод для контроля общего результата 10 баллов */
   void onChange() {
     int total=0;
-
     print("что-то нажали!");
     print("P "+value_P.toString());
     print("A "+value_A.toString());
@@ -71,17 +82,6 @@ class AppComponent {
   String get skill_A => list_A[counter];
   String get skill_E => list_E[counter];
   String get skill_I => list_I[counter];
-
-  final skillScore = [1, 2, 3, 4]; //задаем значения для оценок скилла
-  int selected_P = 0; // объявляем начальные значения оценок скиллов
-  int selected_A = 0;
-  int selected_E = 0;
-  int selected_I = 0;
-
-  int get value_P => selected_P; // получаем значения выбранных оценок для каждого скилла
-  int get value_A => selected_A;
-  int get value_E => selected_E;
-  int get value_I => selected_I;
 
  // String get result => (value_P+value_A+value_E+value_I).toString(); // выводим сумму оценок
 
