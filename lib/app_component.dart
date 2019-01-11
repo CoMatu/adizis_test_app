@@ -41,7 +41,15 @@ class AppComponent {
 
   List listSkillBlocks = List<SkillBlock>();
 
+  int score = 0; // для отслеживания нажатий радио в группе
+
   int counter=0;
+  /** Метод для контроля общего результата 10 баллов */
+
+  void calculateScore(int selectedScore) {
+    score += selectedScore;
+    print(score);
+}
 
   increment() {
     if(counter<11){
