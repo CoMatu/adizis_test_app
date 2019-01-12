@@ -1,6 +1,7 @@
 import 'package:angular/angular.dart';
 import 'package:angular_components/angular_components.dart';
 import 'package:angular_forms/angular_forms.dart';
+import 'dart:async';
 
 @Component(
   selector: 'my-app',
@@ -39,41 +40,70 @@ class AppComponent {
     'Взаимодействующий', 'Теплый', 'Договаривающийся', 'Осведомленный', 'Приятный', 'Объединяющий'
   ];
 
-  List listSkillBlocks = List<SkillBlock>();
+  List listSkillBlocks = List<SkillBlock>(); // объект содержит показатели блока скиллов
 
-    final skillScore = [1, 2, 3, 4]; //задаем значения для оценок скилла
-  int selected_P = 0; // объявляем начальные значения оценок скиллов
-  int selected_A = 0;
-  int selected_E = 0;
-  int selected_I = 0;
+  final skillScore = [1, 2, 3, 4]; //задаем значения для оценок скилла
+
+  int selected_P = 1; // объявляем начальные значения оценок скиллов
+  int selected_A = 1;
+  int selected_E = 1;
+  int selected_I = 1;
 
   int get value_P => selected_P; // получаем значения выбранных оценок для каждого скилла
   int get value_A => selected_A;
   int get value_E => selected_E;
   int get value_I => selected_I;
 
-
-  int counter=0;
+  int counter = 0; // номер блока с вопросами
+  int _total = 0; // сумма выбранных скиллов
+  int _aviable_P = 4; // доступное количество выборов в группе
+  int _aviable_A = 4; // доступное количество выборов в группе
+  int _aviable_E = 4; // доступное количество выборов в группе
+  int _aviable_I = 4; // доступное количество выборов в группе
   /** Метод для контроля общего результата 10 баллов */
   void onChange() {
-    int total=0;
-    print("что-то нажали!");
+    Future((){ // два дня разбирался - надо подождать отработки результата и тогда его только вычислять
+      totalSkills();
+      checkAviability();
+    });
+  }
+/* Функция расчета суммы выборов */
+  void totalSkills(){
     print("P "+value_P.toString());
     print("A "+value_A.toString());
     print("E "+value_E.toString());
     print("I "+value_I.toString());
-    total = value_P+value_A+value_E+value_I;
-    print(total.toString());
+    if(value_A!=null && value_E!=null && value_I!=null && value_P!=null){
+    _total = value_P + value_A + value_E + value_I;
+    print("сумма оценок = "+_total.toString());
+    }
   }
 
+  int get total => _total;
+
+  /* Проверка доступности колличества выборов */
+
+  void checkAviability() {
+    _aviable_P = 11 - _total;
+    _aviable_A = 11 - _total;
+    _aviable_E = 11 - _total;
+    _aviable_I = 11 - _total;
+  }
+
+  int get aviable_P => _aviable_P;
+  int get aviable_A => _aviable_A;
+  int get aviable_E => _aviable_E;
+  int get aviable_I => _aviable_I;
+
+/* нажатие кнопки перехода к другому блоку вопросов */
   increment() {
     if(counter<11){
-  //создаем объект с результатами оценок одного блока
+  //создаем объект с результатами оценок одного блока (предыдущий блок)
     SkillBlock block = SkillBlock(counter, value_P, value_A, value_E, value_I);
     listSkillBlocks.add(block); // пишем оценки блока в массив
 
     counter++;
-    print(counter);
+    print("номер блока "+(counter+1).toString());
     uncheckAll(); //снимаем выборы со всех радио
     }
   }
@@ -83,15 +113,16 @@ class AppComponent {
   String get skill_E => list_E[counter];
   String get skill_I => list_I[counter];
 
- // String get result => (value_P+value_A+value_E+value_I).toString(); // выводим сумму оценок
-
   @ViewChildren(MaterialRadioGroupComponent)
   List<MaterialRadioGroupComponent> groups;
+  List<MaterialRadioComponent> radios;
+
 
   void uncheckAll() {
+    
     for(MaterialRadioGroupComponent child in groups){
     //  print(child.selected);
-      child.selected = null;
+      child.selected = 1; // при переходе к другому блоку преселект первых оценок
     }
     }
 

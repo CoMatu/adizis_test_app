@@ -8,49 +8,43 @@
     <div class="skillrow">{{skill_P}}</div>
     <div class="radiorow">
         <material-radio-group [(ngModel)]="selected_P" (selectedChange)="onChange()">
-            <material-radio *ngFor="let item of skillScore" [value]="item"
-            [disabled]="false">
+            <material-radio *ngFor="let item of skillScore" [value]="item" [disabled]="item>aviable_P && item>value_P">
                 {{item}}
             </material-radio>
         </material-radio-group>
-
     </div>
 </div>
-
 <div>
     <div class="skillrow">{{skill_A}}</div>
     <div class="radiorow">
         <material-radio-group [(ngModel)]="selected_A" (selectedChange)="onChange()">
-            <material-radio *ngFor="let item of skillScore" [value]="item">
+            <material-radio *ngFor="let item of skillScore" [value]="item" [disabled]="item>aviable_A && item>value_A">
                 {{item}}
             </material-radio>
         </material-radio-group>
     </div>
 </div>
-
 <div>
     <div class="skillrow">{{skill_E}}</div>
     <div class="radiorow">
         <material-radio-group [(ngModel)]="selected_E" (selectedChange)="onChange()">
-            <material-radio *ngFor="let item of skillScore" [value]="item">
+            <material-radio *ngFor="let item of skillScore" [value]="item" [disabled]="item>aviable_E && item>value_E">
                 {{item}}
             </material-radio>
         </material-radio-group>
     </div>
 </div>
-
 <div>
     <div class="skillrow">{{skill_I}}</div>
     <div class="radiorow">
         <material-radio-group [(ngModel)]="selected_I" (selectedChange)="onChange()">
-            <material-radio *ngFor="let item of skillScore" [value]="item">
+            <material-radio *ngFor="let item of skillScore" [value]="item" [disabled]="item>aviable_I && item>value_I">
                 {{item}}
             </material-radio>
         </material-radio-group>
     </div>
 </div>
 <br>
-<div class="block_result">Сумма баллов блока ХХ</div>
 <!--
 <p *ngIf="value_P!=null">Оценочка: {{result}}</p>
 <p *ngIf="value_P==null">Ничего не выбрано, лузер!</p>
