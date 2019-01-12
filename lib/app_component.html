@@ -1,7 +1,8 @@
 <h1>Узнайте свою формулу PAEI - какой Вы руководитель?</h1>
 <p>Перед Вами 10 блоков, содержащие по 4 качества личности.
     Присвойте каждому качеству от 1-го до 4-ех баллов в зависимости от того,
-    насколько оно подходит именно вам. Общая сумма баллов одного блока
+    насколько оно подходит именно вам.</p>
+    <p> Общая сумма баллов одного блока
     должна быть равна 10.</p>
 <br>
 <div>
@@ -55,8 +56,8 @@
 </div>
 <div class="navigation">
     <!--!    <material-button class="button" (click)="decrement">Назад</material-button> -->
-    <material-button class="button" *ngIf="count!=11" (click)="increment">Далее</material-button>
-    <material-button class="button" *ngIf="count==11" (click)="viewResult">Узнать результат</material-button>
+    <material-button class="button" *ngIf="count!=11" (click)="increment" [disabled]="total!=10">Далее</material-button>
+    <material-button class="button" *ngIf="count==11" (click)="viewResult" [disabled]="total!=10">Узнать результат</material-button>
 </div>
 <br>
 <!-- TODO сделать выравнивание кнопки навигации по центру-->
