@@ -189,7 +189,9 @@ var data = LinearChartData(
   var config = new ChartConfiguration(
       type: 'bar', data: data, options: new ChartOptions(
         scales: ChartScales(
-          
+          yAxes: [
+              
+          ]
         ),
         responsive: true));
 
