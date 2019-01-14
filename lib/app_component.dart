@@ -2,6 +2,8 @@ import 'package:angular/angular.dart';
 import 'package:angular_components/angular_components.dart';
 import 'package:angular_forms/angular_forms.dart';
 import 'dart:async';
+import 'package:chartjs/chartjs.dart';
+import 'dart:html';
 
 @Component(
   selector: 'my-app',
@@ -90,19 +92,19 @@ class AppComponent {
   }
 /* Функция расчета суммы выборов */
   void totalSkills(){
-    print("P "+value_P.toString());
-    print("A "+value_A.toString());
-    print("E "+value_E.toString());
-    print("I "+value_I.toString());
+  //  print("P "+value_P.toString());
+  //  print("A "+value_A.toString());
+  //  print("E "+value_E.toString());
+  //  print("I "+value_I.toString());
     if(value_A!=null && value_E!=null && value_I!=null && value_P!=null){
     _total = value_P + value_A + value_E + value_I;
-    print("сумма оценок = "+_total.toString());
+  //  print("сумма оценок = "+_total.toString());
     }
   }
 
   int get total => _total;
 
-  /* Проверка доступности колличества выборов */
+  /* Проверка доступности количества выборов */
 
   void checkAviability() {
     _aviable_P = 11 - _total;
@@ -124,7 +126,7 @@ class AppComponent {
     listSkillBlocks.add(block); // пишем оценки блока в массив
 
     counter++;
-    print("номер блока "+(counter+1).toString());
+//    print("номер блока "+(counter+1).toString());
     uncheckAll(); //снимаем выборы со всех радио
     }
   }
@@ -173,7 +175,27 @@ class AppComponent {
       result_A = getSumm_A();
       result_E = getSumm_E();
       result_I = getSumm_I();
-  }
+/* Рисуем график */
+var titles =["P", "A", "E", "I"];
+var chartdata = [result_P, result_A, result_E, result_I];
+var data = LinearChartData(
+  labels: titles,
+  datasets: <ChartDataSets>[ChartDataSets(
+    label: "Сумма баллов", 
+    data: chartdata,
+    backgroundColor: "rgba(0, 142, 179, 1)"
+    )]
+);
+  var config = new ChartConfiguration(
+      type: 'bar', data: data, options: new ChartOptions(
+        scales: ChartScales(
+          
+        ),
+        responsive: true));
+
+  new Chart(querySelector('#canvas') as CanvasElement, config);
+
+    }
 // геттеры для html
   int get P => result_P;
   int get A => result_A;
@@ -195,5 +217,3 @@ class AppComponent {
     int value_I;
     SkillBlock(this.id, this.value_P, this.value_A, this.value_E, this.value_I);
   }
-
-  // TODO нажатие кнопки Узнать результат второй раз деактивировать - возможно вывести сообщение пройти тест еще раз
